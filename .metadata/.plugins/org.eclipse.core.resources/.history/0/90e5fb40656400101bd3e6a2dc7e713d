@@ -1,0 +1,29 @@
+package com.yatra.automation;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class YatraAutomationScript {
+
+	public static void main(String[] args) {
+		
+		//disabling the notifications in chromeDriver using ChromeOptions
+		ChromeOptions chromeOptions=new ChromeOptions();
+		chromeOptions.addArguments("--disable-notifications");
+		
+		//Launch the browser
+		WebDriver driver=new ChromeDriver(chromeOptions);
+		driver.get("https://www.yatra.com");
+		driver.manage().window().maximize();
+		
+		By depatureDateButtonLocator=By.xpath("//div[@role=\"button\" and @aria-label=\"Departure Date inputbox\"]");
+		WebElement depatureDateButton=driver.findElement(depatureDateButtonLocator);	
+		depatureDateButton.click();
+	
+		
+	}
+
+}
